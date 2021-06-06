@@ -8,23 +8,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td> {{producto.nombre}} </td>
-            <td> {{producto.precio}} </td>
-            <td> {{producto.stock}} </td>
-            <td> <img [src]="producto.imagen" [alt]="producto.nombre"> </td>
+
+        <tr *ngFor="let product of products" [ngClass]="{'clearance': product.clearance}">
+            <td> {{product.name}} </td>
+            <td> {{product.price | currency}} </td>
+            <td> <img [src]="product.img" [alt]="product.name"> </td>
+            <td> <span class="badge bg-success" *ngIf="product.stock == 0"> No disponible </span> </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+
     </tbody>
 </table>
