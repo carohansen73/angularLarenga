@@ -14,6 +14,7 @@ export class ProductsListComponent implements OnInit {
     stock:  10,
     img : "assets/img/remeraDamaAzul2.jpg",
     clearance: false,
+    quantity: 0,
   },
   {
     name: "Remera dama azul",
@@ -21,6 +22,7 @@ export class ProductsListComponent implements OnInit {
     stock:  12,
     img : "assets/img/remeraDamaAzul2.jpg",
     clearance: true,
+    quantity: 0,
   },
   {
     name: "Remera hombre roja",
@@ -28,12 +30,25 @@ export class ProductsListComponent implements OnInit {
     stock:  0,
     img : "assets/img/remeraDamaAzul2.jpg",
     clearance: false,
+    quantity: 0,
   }
 ]
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  upQuantity(product: Product): void { //+ cant, product del tipo Product, void xq no retorna nada
+    if (product.quantity < product.stock){
+      product.quantity++; 
+    }
+  }
+  downQuantity(product: Product): void { 
+    if(product.quantity > 0){
+      product.quantity--;
+    }
+    
   }
 
 }
