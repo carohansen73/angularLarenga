@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { LarengaAboutComponent } from './larenga-about/larenga-about.component';
 import { LarengaStoreComponent } from './larenga-store/larenga-store.component';
 import { ProductsCartComponent } from './products-cart/products-cart.component';
+import { InputQuantityComponent } from './input-quantity/input-quantity.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductsCartComponent } from './products-cart/products-cart.component';
     ProductsListComponent,
     LarengaAboutComponent,
     LarengaStoreComponent,
-    ProductsCartComponent
+    ProductsCartComponent,
+    InputQuantityComponent
   ],
   imports: [
     BrowserModule,
