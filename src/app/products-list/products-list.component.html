@@ -15,9 +15,8 @@
             <td> {{product.price | currency}} </td>
             <td> <img width="80" [src]="product.img" [alt]="product.name"> </td>
             <td> <span class="badge bg-success" *ngIf="product.stock == 0"> No disponible </span> </td>
-            <td> <button class="btn btn-dark" (click)="downQuantity(product)"> - </button>
-                <input type="number" [(ngModel)]="product.quantity">
-                <button class="btn btn-dark" (click)="upQuantity(product)"> + </button>
+            <td>
+                <app-input-quantity [quantity]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-quantity>
             </td>
         </tr>
 
