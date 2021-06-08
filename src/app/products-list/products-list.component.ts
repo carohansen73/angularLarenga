@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './products';
+import { Product } from './Products';
 
 @Component({
   selector: 'app-products-list',
@@ -48,7 +48,8 @@ export class ProductsListComponent implements OnInit {
     if(product.quantity > 0){
       product.quantity--;
     }
-    
   }
+
+  
 
 }
