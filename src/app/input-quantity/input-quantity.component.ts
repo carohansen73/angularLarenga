@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import * as EventEmitter from 'events';
 import { Product } from '../products-list/Products';
 
 @Component({
@@ -16,18 +17,27 @@ export class InputQuantityComponent implements OnInit {
   @Input()
   max!: number;
 
+  @Output()
+  quantityChange: EventEmitter<number> = new EventEmitter<number>();
+
   ngOnInit(): void {
   }
 
   upQuantity(): void { //+ cant, product del tipo Product, void xq no retorna nada
     if (this.quantity < this.max){
       this.quantity++; 
+      this.quantityChange.emit(this.quantity)
     }
   }
   downQuantity(): void { 
     if(this.quantity > 0){
       this.quantity--;
+      this.quantityChange.emit(this.quantity);
     }
   }
 
+  changeQuantity(event: { key: any; }): void {
+    console.log(event.key);
+    this.quantityChange.emit(this.quantity);
+  }
 }

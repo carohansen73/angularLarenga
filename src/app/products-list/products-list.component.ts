@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCartService } from '../product-cart.service';
 import { Product } from './Products';
 
 @Component({
@@ -33,13 +34,25 @@ export class ProductsListComponent implements OnInit {
     quantity: 0,
   }
 ]
-
-  constructor() { }
+  
+//inyeccion de depenencia: no puedo hcer un new cda vez q lo uso xq seria otra dependencia
+  constructor(private cart: ProductCartService) {
+  }
 
   ngOnInit(): void {
   }
 
- 
+  //lo llamo desde list-html
+  addToCart(product: Product): void{
+    this.cart.addToCart(product);
+    product.stock -= product.quantity;
+    product.quantity = 0;
+  }
+
+
+ maxReached(m: string) {
+   console.log(m);
+ }
   
 
 }

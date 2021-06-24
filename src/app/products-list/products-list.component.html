@@ -6,6 +6,7 @@
             <th>Imagen</th>
             <th>Stock</th>
             <th> Compra </th>
+            <th> carrito </th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +17,11 @@
             <td> <img width="80" [src]="product.img" [alt]="product.name"> </td>
             <td> <span class="badge bg-success" *ngIf="product.stock == 0"> No disponible </span> </td>
             <td>
-                <app-input-quantity [quantity]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-quantity>
+                <app-input-quantity [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-quantity>
+                <p> {{product.quantity}} </p>
+            </td>
+            <td>
+                <button class="btn" (click)="addToCart(product)"> Agregar al Carrito  </button>
             </td>
         </tr>
 
