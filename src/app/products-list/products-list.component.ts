@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCartService } from '../product-cart.service';
+import { ProductsDataService } from '../products-data.service';
 import { Product } from './Products';
 
 @Component({
@@ -36,7 +37,9 @@ export class ProductsListComponent implements OnInit {
 ]
   
 //inyeccion de depenencia: no puedo hcer un new cda vez q lo uso xq seria otra dependencia
-  constructor(private cart: ProductCartService) {
+  constructor (
+    private cart: ProductCartService,
+    private productsDataService: ProductsDataService ) {
   }
 
   ngOnInit(): void {
