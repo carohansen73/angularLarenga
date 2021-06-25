@@ -16,12 +16,14 @@ export class ProductCartService {
 
 
   addToCart(product: Product) {
-    let item: Product = this.shopList.find((v1) => v1.name == product.name)
+    //no me toma el let item: Product
+    let item = this._shopList.find((v1) => v1.name == product.name)
     if(!item){
-      this.shopList.push({ ... product}); //hace una copia del obj
+      this._shopList.push({ ... product}); //hace una copia del obj
     } else {
       item.quantity += product.quantity;
     }
+    this.shopList.next(this._shopList); //= emitt de eventos
     
   }
 

@@ -50,7 +50,7 @@ export class ProductsListComponent implements OnInit {
   }
 
 
- maxReached(m: string) {
+ maxReached(m: number) {
    console.log(m);
  }
   
