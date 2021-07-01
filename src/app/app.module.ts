@@ -12,6 +12,7 @@ import { LarengaStoreComponent } from './larenga-store/larenga-store.component';
 import { ProductsCartComponent } from './products-cart/products-cart.component';
 import { InputQuantityComponent } from './input-quantity/input-quantity.component';
 import { from } from 'rxjs';
+import { LarengaHomeComponent } from './larenga-home/larenga-home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { from } from 'rxjs';
     LarengaAboutComponent,
     LarengaStoreComponent,
     ProductsCartComponent,
-    InputQuantityComponent
+    InputQuantityComponent,
+    LarengaHomeComponent
   ],
   imports: [
     BrowserModule,

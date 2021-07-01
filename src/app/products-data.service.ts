@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 //import { url } from 'inspector';
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Product } from './products-list/Products';
 
@@ -17,7 +18,13 @@ export class ProductsDataService {
   public getAll(): Observable<Product[]> {
     //como un fetch q devolvia una promesa
     //aca decuelve un observable
-    return this.http.get<Product[]>(URL);
+    return this.http.get<Product[]>(URL).pipe(
+      tap((products: Product[]) => products.forEach(product => product.quantity = 0))
+    );
   }
 
+  
 }
+
+
+
