@@ -9,7 +9,8 @@ import { Product } from './Products';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  products: Product[] = [
+  products: Product[] = [];
+  /* [
     {
     name: "Remera dama gris",
     price: 600,
@@ -35,7 +36,7 @@ export class ProductsListComponent implements OnInit {
     quantity: 0,
   }
 ]
-  
+ */ 
 //inyeccion de depenencia: no puedo hcer un new cda vez q lo uso xq seria otra dependencia
   constructor (
     private cart: ProductCartService,
@@ -43,7 +44,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //me subscribo al observable
+    this.productsDataService.getAll().subscribe(products => this.products = products); 
   }
+  
 
   //lo llamo desde list-html
   addToCart(product: Product): void{
