@@ -16,7 +16,7 @@
                 <td> {{product.name}} </td>
                 <td> {{product.price | currency}} </td>
                 <td> <img width="80" [src]="product.img" [alt]="product.name"> </td>
-                <td> <span class="badge bg-success" *ngIf="product.stock == 0"> No disponible </span> </td>
+                <td> <span class="badge bg-success" *ngIf="product.stock == 0"> No disponible </span></td>
                 <td>
                     <app-input-quantity [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-quantity>
                 </td>
